@@ -29,11 +29,12 @@ function onMouseMove(event){ //매개변수 event 를 준다.
     const y = event.offsetY; //offsetX 와 offsetY 값을 가져온다. 
     // console.log(x, y); // offsetX Y 값을 찍어낸다. 
     if(!painting){ //painting 상태가 아닐 때 
+        // path는 선이다 . // 
         ctx.beginPath();  //beginPath를 실행한다. (선에서 시작점을 찍어내는 걸 기다림)
-        ctx.moveTo(x, y); //moveTo x y 실행 (x, y 값은 위에서 가져왔음)
-    } else {
-        ctx.lineTo(x, y); //x와 y로 
-        ctx.stroke(); //선을 긋는다. 
+        ctx.moveTo(x, y); //x y 좌표로 path를 옮긴다. (x, y 값은 위에서 가져왔음)
+    } else { // painting이 true 값이면, 즉 마우스가 클릭 상태이면 
+        ctx.lineTo(x, y); // path의 위치에서 현재 위치까지 선을 만든다. 
+        ctx.stroke(); //path 를 따라 선을 긋는다.  
     }
      
 }
